@@ -3,6 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: 'https://users-messages-gql.herokuapp.com/graphql',
+  cache: new InMemoryCache(),
+});
+
+client
+  .query({
+    query: gql`
+      query GetUsers {
+        users {
+          username
+          first_name
+          last_name
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
