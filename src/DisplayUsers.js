@@ -22,6 +22,7 @@ function DisplayUsers() {
 
   return data.users.map(({ username, first_name, last_name, messages }) => (
     <div key={username}>
+      <h2>{username}</h2>
       <h3>{first_name} {last_name}</h3>
       <br />
       {messages.length > 0 && <div>

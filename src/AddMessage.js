@@ -5,16 +5,16 @@ function AddMessage() {
   const CREATE_MESSAGE = gql`
   mutation createMessage(
     $username: ID!,
-    $body: String!
+    $body: String!,
     ) {
     createMessage(
-      username: $username,
-      body: $body
-      id
+      username: $username
+      body: $body) {
       body
       user {
         username
       }
+    }
   }
 `;
 
@@ -82,4 +82,4 @@ function AddMessage() {
   );
 }
 
-export default AddUser;
+export default AddMessage;
