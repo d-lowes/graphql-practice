@@ -3,11 +3,19 @@ import { useState } from 'react';
 
 function AddUser() {
   const CREATE_USER = gql`
-    mutation createUser($username: ID!, $first_name: String!, $last_name: String!) {
-      createUser(username: $username, first_name: $first_name, last_name: $last_name) {
-        username
-        first_name
-        last_name
+    mutation createUser(
+      $username: ID!,
+      $first_name: String!,
+      $last_name: String!
+      ) {
+      createUser(
+        username: $username,
+        first_name: $first_name,
+        last_name: $last_name
+        ) {
+          username
+          first_name
+          last_name
       }
     }
   `;
